@@ -1,0 +1,189 @@
+.homeDiv{
+    width: 100%;
+    height: 100vh;
+    background-color: #F3F5F7;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: solid; */
+}
+
+.labelError{
+    color: red;
+}
+
+.inputDivError{
+    width: 330px;
+    height: 45px;
+    border: solid 1.5px red;
+    border-radius: 5px;
+}
+
+.loginText{
+    margin-top: 35px;
+    font-size: 20px;
+}
+
+.loginImg {
+    width: 100%;
+}
+
+.logo {
+    position: absolute;
+    left: 49%;
+    top: 10%;
+}
+
+.homeText{
+    position: absolute;
+    color: #fff;
+    left: 46%;
+    top: 23%;
+}
+
+.hidePassword{
+    position: absolute;
+    right : 14%;
+    top: 53.5%;
+}
+
+.loginDiv{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    align-items: center;
+    background-color: #fff;
+    width: 400px;
+    height: 450px;
+    /* box-shadow: 0px 0px 10px 2px rgb(194, 228, 239); */
+    border-radius: 10px;
+    top: 35%;
+    left: 39%;
+}
+
+.labelDiv{
+    display: flex;
+    flex-direction: column;
+    color: gray;
+}
+
+.inputDiv{
+    width: 330px;
+    height: 45px;
+    border: solid 1.5px gray;
+    border-radius: 5px;
+}
+
+.loginButton{
+    background-color: #035FB2;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    width: 150px;
+    height: 35px;
+}
+
+@media (max-width : 769px){
+    .loginDiv{
+        left: 30%;
+    }
+}
+
+@media (max-width : 426px){
+    .loginDiv{
+        height: 350px;
+        left: 5%;
+        top: 35%;
+        gap: 30px;
+    }
+    .homeText{
+        left: 32%;
+        top: 20%;
+    }
+    .loginButton{
+        width: 320px;
+    }
+    .logo{
+        left: 42%;
+        top: 4%;
+    }
+        .loginImg {
+            object-fit: cover;
+            height: 100%;
+            border-bottom-left-radius: 50px;
+        }
+    
+        .loginImgCont {
+            height: 180px;
+            border-bottom-left-radius: 50px;
+        }
+
+        .hidePassword {
+                top: 65.5%;
+                right: 12%;
+        }
+}
+
+@media (max-width : 376px){
+    .loginDiv {
+            width: 350px;
+            left: 4%;
+            top: 35%;
+            gap: 20px;
+            height: 350px;
+        }
+    
+        .loginImg {
+            object-fit: cover;
+            height: 100%;
+            border-bottom-left-radius: 50px;
+        }
+
+        .loginText{
+            margin-top: 0px;
+        }
+    
+        .loginImgCont {
+            height: 180px;
+            border-bottom-left-radius: 50px;
+        }
+    
+}
+
+@media (max-width : 321px) {
+    .loginDiv {
+        width: 300px;
+        height: 350px;
+        left: 4%;
+        top: 35%;
+    }
+
+    .inputDiv{
+        width: 300px;
+    }
+
+    .loginText{
+        margin-top: 0px;
+    }
+
+    .loginButton{
+        width: 300px;
+    }
+
+    .loginImg{
+        object-fit: cover;
+        height: 100%;
+        border-bottom-left-radius: 60px;
+    }
+
+    .loginImgCont {
+        height: 180px;
+        border-bottom-left-radius:60px;
+    }
+
+    .hidePassword{
+        top: 50%;
+        right: 10%;
+    }
+}

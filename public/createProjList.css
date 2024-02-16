@@ -1,0 +1,120 @@
+.projListContainer{
+        height: 100lvh;
+        background-color: #F3F5F7;
+}
+
+.logoutImg{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.createProjListCont {
+    position: absolute;
+    width: 94%;
+    height: 92%;
+    top: 17%;
+    left: 5%;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.listDiv1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border-spacing: 30px;
+}
+
+td,
+th {
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+    padding: 50px;
+}
+
+td{
+    height: 60px;
+}
+
+.buttonContlist{
+    justify-content: space-evenly;
+    display: flex;
+    gap: 10px;
+}
+
+.buttonList{
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: white;
+    color: #025AAB;
+    border: solid 1px #025AAB;
+}
+
+.buttonList:hover{
+    background-color: #025AAB;
+    color: white;
+}
+
+.cardList{
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+}
+
+.nameCont{
+    display: flex;
+    justify-content: space-between;
+}
+
+.projName{
+    font-weight: bold;
+}
+
+.projStatus{
+    font-weight: bold;
+}
+.projField{
+    color: grey;
+}
+.cardContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media (min-width : 770px){
+    .cardContainer {
+        display: none;
+    }
+
+    .logoutImg{
+        top: 0;
+        right: 50%;
+    }
+    
+}
+
+
+
+@media (max-width : 769px){
+    .createProjListCont{
+        padding: 5px;
+        left: 3%;
+        background-color: transparent;
+    }
+    table{
+        display: none;
+    }
+}

@@ -1,0 +1,57 @@
+.dashContainer {
+    height: 100vh;
+    background-color: #F3F5F7;
+}
+.dashFlex{
+    position: absolute;
+    top: 17%;
+    left: 7%;
+    width: 90%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashCont{
+    width: 250px;
+    height: 100%;
+    border-left: solid 5px #0CC9E8;
+    border-radius: 5px;
+    background-color: #fff;
+    padding-top: 8px;
+    flex-shrink: 0;
+    padding-left: 10px;
+} 
+
+.chartCont {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    top: 10%;
+    left: 5%;
+}
+
+@media (max-width : 1030px){
+    .dashCont{
+        width: 150px;
+        height: 100%;
+    }
+
+    .dashFlex{
+        gap: 15px;
+        height: 90px;
+        overflow: scroll;
+    }
+
+    .chartCont{
+        width: 90%;
+        height: 90%;
+        left: 7%;
+        top: 180px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        padding-right: 20px;
+        border-radius: 10px;
+    }
+}

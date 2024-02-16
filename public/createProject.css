@@ -1,0 +1,248 @@
+
+.creatProjContainer{
+    height: 100vh;
+    background-color: #F3F5F7;
+}
+
+.sideNavBar{
+    height: 100vh;
+    width: 60px;
+    background-color: #fff;
+    border: none;
+    display: flex;
+    justify-content: center;
+    top: 5%;
+    z-index: 0;
+}
+
+.createCont{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dashImg{
+    width: 100%;
+    z-index: 1;
+}
+
+.iconContNav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.dashLogo{
+    position: absolute;
+    left: 50%;
+    top: 3%;
+}
+
+.createProjText {
+    position: absolute;
+    left: 5%;
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    gap: 20px;
+    font-weight: bold;
+    top: 50px;;
+}
+
+.createProjInfoCont{
+    width: 100%;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.createTheme{
+    width: 100%;
+    height: 80px;
+    border: solid 1px gray;
+    border-radius: 8px;
+}
+
+.saveButton{
+    background-color: #035FB2;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        width: 150px;
+        height: 35px;
+}
+
+.mobileProjDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+.createOption{
+    width: 330px;
+    height: 50px;
+    border-radius: 8px;
+}
+.opCont{
+    display: flex;
+    row-gap: 30px;
+    column-gap: 50px;
+}
+
+.optionContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width : 989px){
+    .createCont{
+        width: 100%;
+        
+    }
+
+    .createProjInfoCont{
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+    }
+    .createTheme{
+        width: 100%;
+    }
+    /* .opCont{
+        width: 300px;
+        row-gap: 0px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    } */
+    .createOption{
+        width: 100%;
+    }
+    .dashLogo{
+        display: none;
+    }
+
+    .createProjText{
+        top: 0px;
+    }
+
+    .iconContNav{
+        flex-direction: row;
+        gap: 50px;
+    }
+    .sideNavBar{
+        position: fixed;
+        width: 100%;
+        height: 60px;
+        top: 92%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        z-index: 1;
+    }
+    /* .saveButton{
+        position: absolute;
+        top: 865px;
+        z-index: 0;
+    } */
+}
+
+@media (min-width:770px){
+    .isButtonVisDown {
+            display: none;
+        }
+
+        .logoutImg {
+            display: none;
+        }
+}
+
+@media (max-width : 770px){
+    .isButtonVisUp{
+        display: none;
+    }
+}
+
+@media (min-width:424px) {
+    /* .saveButton {
+        top: 870px
+    } */
+}
+
+@media (min-width:1000px){
+    .desktopProjInfo{
+        width: 950px;
+        position: relative;
+        left: 5%;
+        padding: 10px;
+    }
+
+    .desktopProjTheme{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .createTheme{
+        width: 50%;
+    }
+    
+    .optionContainer{
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        row-gap: 15px;
+        margin-top: 30px;
+    }
+
+    .createOption{
+        width: 300px;
+    }
+
+    .statusCont {
+        position: relative;
+        top: 20%;
+        left: 0%;
+    }
+}
+
+@media (min-width:1200px) {
+    .desktopProjInfo {
+        width: 93%;
+        position: absolute;
+        top: 23%;
+        left: 5%;
+        padding: 10px;
+    }
+
+    .desktopProjTheme {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .createTheme {
+        width: 60%;
+    }
+
+    .optionContainer {
+        width: 80%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 30px;
+        column-gap: 30px;
+        margin-top: 60px;
+    }
+
+    .createOption {
+        width: 350px;
+    }
+
+    .statusCont {
+        position: absolute;
+        top: 90%;
+        left: 54%;
+    }
+}
