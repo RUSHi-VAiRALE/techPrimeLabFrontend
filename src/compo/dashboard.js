@@ -9,6 +9,7 @@ import Logo from "../drive-download-20240208T081504Z-001/Logo.svg"
 import { useEffect } from "react";
 import axios from "axios";
 import logoutImg from "../drive-download-20240208T081504Z-001/Logout.svg"
+import { useNavigate } from "react-router-dom";
 
 
 const DashBoard = () =>{
@@ -16,18 +17,21 @@ const DashBoard = () =>{
     
     const [data , setData] = useState([]);
     const [countData, setCountData] = useState([])
+    const navigate = useNavigate()
 
-    
-
-    const [dataDash , setDataDash] = useState([]);
     useEffect (()=>{
         axios.get("http://localhost:8000/dashBoardData")
         .then((res)=>{
+            console.log(res.data)
             setCountData(res.data.CountData)
             setData(res.data.GraphData)
         })
     },[])
 
+    const handleLogout = () =>{
+        localStorage.clear()
+        navigate("/")
+    }
 
     return(
         <div className=".dashContainer">
@@ -35,7 +39,7 @@ const DashBoard = () =>{
             <SideNav />
             <div style={{"width":"100%"}}>
                 <img className="dashImg" src={HeaderBg} />
-                <img className="logoutImg" src={logoutImg} />
+                <img onClick={handleLogout} className="logoutImg" src={logoutImg} />
                 <img className="dashLogo" src={Logo} />
                 <div className="createProjText"><span><img src={BackArrow}/></span>Dashboard</div>
                 <div className="dashFlex">

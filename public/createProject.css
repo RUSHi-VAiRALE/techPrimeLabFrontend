@@ -15,6 +15,11 @@
     z-index: 0;
 }
 
+.logoutDesk{
+    position: absolute;
+    bottom: 40px;
+}
+
 .createCont{
     width: 100%;
     display: flex;
@@ -158,10 +163,14 @@
         }
 }
 
-@media (max-width : 770px){
+@media (max-width : 934px){
     .isButtonVisUp{
         display: none;
     }
+
+        .logoutDesk{
+            display: none;
+        }
 }
 
 @media (min-width:424px) {

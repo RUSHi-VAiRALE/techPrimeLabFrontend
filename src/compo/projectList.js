@@ -10,6 +10,8 @@ import MobileCard from "./mobileCard";
 import LogoutImg from "../drive-download-20240208T081504Z-001/Logout.svg";
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import { error } from "highcharts";
+import { useNavigate } from "react-router-dom";
 const limitPage = 8;
 let newData = new Array();
 
@@ -54,45 +56,13 @@ const CreateCard = (info) => {
         />
     )
     }
-    // const handleClick = (p) =>{
-    //     console.log("uyuikjh")
-    // }
-
-    // const datemani = (dat) =>{
-    //     let l = "" + String(dat);
-    //     let a = l.split("-")
-    //     let c = a[2]
-    //     let d = ""+c[0]+c[1];
-    //     return ""+arrayMonth[Number(a[1])]+'-'+d + ", " + a[0];
-    // }
-
-    // return(
-    //                                 <tr key={info._id}>
-    //                                     <td style={{"fontWeight":"bold"}}>{info.ProjectTheme}<div><span style={{"color":"grey","fontWeight":"lighter"}}>{datemani(info.StartDate)} to {datemani(info.EndDate)}</span></div></td>
-    //                                     <td>{info.Reason}</td>
-    //                                     <td>{info.Type}</td>
-    //                                     <td>{info.Division}</td>
-    //                                     <td>{info.Category}</td>
-    //                                     <td>{info.Priority}</td>
-    //                                     <td>{info.Department}</td>
-    //                                     <td>{info.ProjectLoc}</td>
-    //                                     <td style={{"color":"blue","fontWeight":"bold"}}>{info.Status}</td>
-    //                                     <td>
-    //                                         <div className="buttonContlist">
-    //                                             <button onClick={handleClick(info._id)} className="buttonList">Start</button>
-    //                                             <button onClick={handleClick(info._id)} className="buttonList">Close</button>
-    //                                             <button onClick={handleClick(info._id)} className="buttonList">Cancel</button>
-    //                                         </div>
-    //                                     </td>
-    //                                 </tr>
-    //                             )
 
 
 const ProjectList = () =>{
 
     const [data, setData] = useState([]);
     const [size, setSize] = useState();
-    const [isUse, setUse] = useState(true)
+    const navigate = useNavigate()
 
     const arrayHeading = ["Project Name", "Reason", "Type", "Division", "Category", "Priority", "Dept.", "Location", "Status"];
 
@@ -114,7 +84,7 @@ const ProjectList = () =>{
         .catch((err)=>{
             console.log(err)
         })
-    },[isUse])
+    },[])
 
     const handlePagination = (e,p) =>{
         // console.log(p)
@@ -152,17 +122,33 @@ const ProjectList = () =>{
 
     }
 
+    const handleChangeSearch = (e) =>{
+        console.log(e.target.value)
+        axios.get("http://localhost:8000/search/"+e.target.value)
+        .then((res)=>{
+            console.log(res.data);
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+    }
+
+    const handleLogout = () =>{
+        localStorage.clear()
+        navigate("/")
+    }
+
     return (
         <div className="projListContainer" style={{"display":"flex"}}>
             <SideNav />
             <div style={{"width":"100%"}}>
                 <img className="dashImg" src={HeaderBg} />
-                <img className="logoutImg" src={LogoutImg} />
+                <img onClick={handleLogout} className="logoutImg" src={LogoutImg} />
                 <img className="dashLogo" src={Logo} />
                 <div className="createProjText"><span><img src={BackArrow}/></span>Project Listing</div>
                 <div className="createProjListCont">
                     <div className="listDiv1">
-                        <input type="search" name="searchRes" placeholder="Search"/>
+                        <input onChange={handleChangeSearch} type="search" name="searchRes" placeholder="Search"/>
                         <div>
                             <span>Sort By: </span>
                             <select onChange={handleChange} name="sortBy" style={{"border":"none"}}>

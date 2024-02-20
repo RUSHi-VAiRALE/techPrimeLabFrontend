@@ -6,6 +6,7 @@ import BackArrow from "../drive-download-20240208T081504Z-001/back arrow.svg"
 import Logo from "../drive-download-20240208T081504Z-001/Logo.svg"
 import axios from "axios";
 import LogoutImg from "../drive-download-20240208T081504Z-001/Logout.svg"
+import { useNavigate } from "react-router-dom";
 
 // const createOptions = (opt) => {
 //     return(
@@ -35,6 +36,7 @@ const CreateProject = () =>{
     const [isThemeError, setisThemeError] = useState(false)
     const [isError, setIsError] = useState(false)
     const [DateError, setDateError] = useState(false)
+    const navigate = useNavigate();
     const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -94,6 +96,11 @@ const CreateProject = () =>{
         }
     }
 
+    const handleLogout = () =>{
+        localStorage.clear()
+        navigate("/")
+    }
+
     console.log(optionArray)
 
     return(
@@ -104,7 +111,7 @@ const CreateProject = () =>{
             <div style={{"flex":"1"}}>
                 <div className="creatProjContainer">
             <img className="dashImg" src={HeaderBg} />
-            <img className="logoutImg" src={LogoutImg} />
+            <img onClick={handleLogout} className="logoutImg" src={LogoutImg} />
                    <img className="dashLogo" src={Logo} />
                <div className="createProjText"><span><img src={BackArrow}/></span>Create Project</div>
             <div style={{"padding":"5px","width":"100%"}}>

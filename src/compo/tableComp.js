@@ -5,7 +5,12 @@ const arrayMonth = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct",
 
 const TableCreate = (props) =>{
 
-    const [Tp, setTp] =useState(true)
+    const [Tp, setTp] =useState(false)
+    const [status,setStatus] = useState("");
+
+    // const handleChange = (e)=>{
+    //     console.log(e)
+    // }
 
     const handleClick = (e) =>{
         console.log(e.target.value)
@@ -13,7 +18,8 @@ const TableCreate = (props) =>{
             axios.put("http://localhost:8000/update/"+props.Id,{change:e.target.value})
             .then((res)=>{
                 console.log(res.data)
-                setTp(!Tp)
+                setTp(true)
+                setStatus(e.target.value)
             })
             .catch((err)=>{
                 console.log(err)
@@ -41,7 +47,7 @@ const TableCreate = (props) =>{
                                         <td>{props.Priority}</td>
                                         <td>{props.Department}</td>
                                         <td>{props.ProjectLoc}</td>
-                                        <td style={{"fontWeight":"bold"}}>{props.Status}</td>
+                                        <td style={{"fontWeight":"bold"}}>{(Tp)?status:props.Status}</td>
                                         <td>
                                             <div className="buttonContlist">
                                                 <button onClick={handleClick} value="Running" style={{"backgroundColor":"#025AAB","color":"white"}} className="buttonList">Start</button>

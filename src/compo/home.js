@@ -35,6 +35,7 @@ const Home = () => {
                     setisUserValid(true)
                 }
                 else{
+                    localStorage.setItem("UserName",inputsLogin.email)
                     navigate("/createProject")
                 }
             })
