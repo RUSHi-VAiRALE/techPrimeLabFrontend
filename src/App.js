@@ -12,10 +12,10 @@ const App = () => {
 const user = localStorage.getItem("UserName")
   return(
   <Routes>
-    <Route path='/' element={<Home />} />
-    <Route path='/createProject' element={(user)?<CreatProject />:alert("Please Login First")}/>
-    <Route path='/dashBoard' element={(user)?<DashBoard />:alert("Please Login First")} />
-    <Route path='/projectList' element={(user)?<ProjectList />:alert("Please Login First")} />
+    {(user === null)&&<Route path='/' element={<Home />} />}
+    {(user) && <Route path='/createProject' element={<CreatProject />}/>}
+    {(user) && <Route path='/dashBoard' element={<DashBoard />}/>}
+    {(user) && <Route path='/projectList' element={<ProjectList />}/>}
   </Routes>
   )
   
