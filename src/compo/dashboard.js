@@ -1,6 +1,6 @@
 
 
-import React, { useState ,PureComponent} from "react";
+import React, { useState} from "react";
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import SideNav from "./sideNav";
 import HeaderBg from "../drive-download-20240208T081504Z-001/Header-bg.svg"

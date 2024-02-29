@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import LoginBg from "../drive-download-20240208T081504Z-001/login-bg-1.svg"
 import Logo from "../drive-download-20240208T081504Z-001/Logo.svg"
 import axios from "axios";
