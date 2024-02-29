@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import SideNav from "./sideNav";
 import HeaderBg from "../drive-download-20240208T081504Z-001/Header-bg.svg"
 import BackArrow from "../drive-download-20240208T081504Z-001/back arrow.svg"
@@ -7,20 +7,9 @@ import Logo from "../drive-download-20240208T081504Z-001/Logo.svg"
 import axios from "axios";
 import LogoutImg from "../drive-download-20240208T081504Z-001/Logout.svg"
 import { useNavigate } from "react-router-dom";
+import { error } from "highcharts";
 
-// const createOptions = (opt) => {
-//     return(
-//         <div style={{"display":"flex","flexDirection":"column"}} key={opt.id}>
-//             <label>{opt.optionHeading}</label>
-//                 <select className="createOption">
-//                     <option selected>Choose...</option>
-//                     {opt.options.map((op)=>{
-//                        return(<option value={op}>{op}</option>)
-//                     })}
-//                 </select>
-//         </div>
-//     )
-// }
+
 
 const CreateProject = () =>{ 
     const [inputs, setInputs] = useState({
@@ -92,6 +81,10 @@ const CreateProject = () =>{
             axios.post("http://localhost:8000/createProject",inputs)
         .then((res)=>{
             console.log(res)
+            navigate("/projectList")
+        })
+        .catch((error)=>{
+            console.log(error)
         })
         }
     }
@@ -101,7 +94,13 @@ const CreateProject = () =>{
         navigate("/")
     }
 
-    console.log(optionArray)
+    useEffect(()=>{
+        const user = localStorage.getItem("UserName");
+        if(user === null){
+            alert("Please Login first");
+            navigate("/")
+        }
+    },[])
 
     return(
         <div style={{"display":"flex"}}>

@@ -68,6 +68,11 @@ const ProjectList = () =>{
 
 
     useEffect(()=>{
+        const user = localStorage.getItem("UserName");
+        if(user === null){
+            alert("Please Login first");
+            navigate("/")
+        }else{
         axios.get("http://localhost:8000/getProject")
         .then((res)=>{
             let endIndex = 8;
@@ -84,6 +89,7 @@ const ProjectList = () =>{
         .catch((err)=>{
             console.log(err)
         })
+    }
     },[])
 
     const handlePagination = (e,p) =>{
@@ -122,15 +128,13 @@ const ProjectList = () =>{
 
     }
 
+
     const handleChangeSearch = (e) =>{
-        console.log(e.target.value)
-        axios.get("http://localhost:8000/search/"+e.target.value)
-        .then((res)=>{
-            console.log(res.data);
-        })
-        .catch((error)=>{
-            console.log(error)
-        })
+        setData(filterArray(newData,e.target.value))
+    }
+
+    function filterArray(arr,query){
+        return arr.filter((el) => el.ProjectTheme.toLowerCase().includes(query.toLowerCase()) || el.Priority.toLowerCase().includes(query.toLowerCase()) || el.Type.toLowerCase().includes(query.toLowerCase()) || el.Division.toLowerCase().includes(query.toLowerCase()) || el.Department.toLowerCase().includes(query.toLowerCase()) || el.ProjectLoc.toLowerCase().includes(query.toLowerCase()) || el.Reason.toLowerCase().includes(query.toLowerCase()) || el.Category.toLowerCase().includes(query.toLowerCase())||el.Status.toLowerCase().includes(query.toLowerCase()));
     }
 
     const handleLogout = () =>{

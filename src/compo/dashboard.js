@@ -20,12 +20,18 @@ const DashBoard = () =>{
     const navigate = useNavigate()
 
     useEffect (()=>{
-        axios.get("http://localhost:8000/dashBoardData")
+        const user = localStorage.getItem("UserName");
+        if(user === null){
+            alert("Please Login first");
+            navigate("/")
+        }else {
+            axios.get("http://localhost:8000/dashBoardData")
         .then((res)=>{
             console.log(res.data)
             setCountData(res.data.CountData)
             setData(res.data.GraphData)
         })
+        }
     },[])
 
     const handleLogout = () =>{
@@ -68,8 +74,8 @@ const DashBoard = () =>{
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="Total" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
-          <Bar dataKey="Closed" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} />
+          <Bar dataKey="Total" fill="#8884d8" activeBar={<Rectangle fill="#8884d1" stroke="blue" />} />
+          <Bar dataKey="Closed" fill="#82ca9d" activeBar={<Rectangle fill="#82ca9c" stroke="purple" />} />
         </BarChart>
       </ResponsiveContainer>
                 </div>

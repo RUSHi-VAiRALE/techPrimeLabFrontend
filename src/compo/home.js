@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import LoginBg from "../drive-download-20240208T081504Z-001/login-bg-1.svg"
 import Logo from "../drive-download-20240208T081504Z-001/Logo.svg"
@@ -14,6 +14,7 @@ const Home = () => {
     
     const [pass, setPass] = useState(true)
     const [errorMsg , seterrorMsg] = useState(false);
+    const [validEmail, setValidEmail] = useState(false)
     const [isUserValid, setisUserValid] = useState(false);
     const navigate = useNavigate();
     const handleChange = (event) => {
@@ -25,13 +26,20 @@ const Home = () => {
 
     const handleClick = () =>{
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if(inputsLogin.email === "" || inputsLogin.password === "" || !regex.test(inputsLogin.email)){
+        if(inputsLogin.email === "" || inputsLogin.password === ""){
             seterrorMsg(true)
+        }
+        else if(!regex.test(inputsLogin.email)){
+            seterrorMsg(false)
+            setisUserValid(false)
+            setValidEmail(true);
         }
         else{
             axios.post("http://localhost:8000",inputsLogin)
             .then((res)=>{
                 if(res.data === "invalid user" || res.data === "user does not exist"){
+                    seterrorMsg(false)
+                    setValidEmail(false)
                     setisUserValid(true)
                 }
                 else{
@@ -44,6 +52,14 @@ const Home = () => {
             })
         }
     }
+
+    useEffect (()=>{
+        const user = localStorage.getItem("UserName");
+        if(user !== null){
+            navigate("/createProject")
+            alert("Action not allowed")
+        }
+    },[])
 
     return (
         <div className="homeDiv">
@@ -58,14 +74,20 @@ const Home = () => {
                     <div className="loginText">Login to get started</div>
                     <div className="labelDiv">
                         <label className={(errorMsg)?"labelError":""} >Email</label>
-                        <input onChange={handleChange} className={(errorMsg)?"inputDivError":"inputDiv"} name="email" type="email" />
+                        <div>
+                            <input onChange={handleChange} className={(errorMsg)?"inputDivError":"inputDiv"} name="email" type="email" />
+                        </div>
                         {(errorMsg) && <p style={{"color":"red","position":"relative"}}>Email is required</p>}
+                        {(validEmail) && <p style={{"color":"red","position":"relative"}}>Enter Valid Email</p>}
                     </div>
                     <div className="labelDiv">
                         <label className={(errorMsg)?"labelError":""}>Password</label>
-                        <input onChange={handleChange} className={(errorMsg)?"inputDivError":"inputDiv"} name="password" type={(pass)?"password":""}></input> <img onClick={()=>{
+                        <div>
+                            <input onChange={handleChange} className={(errorMsg)?"inputDivError":"inputDiv"} name="password" type={(pass)?"password":""}/>
+                            <img onClick={()=>{
                             setPass(!pass)
                         }} className="hidePassword" src={hidePassword} />
+                        </div>
                         {(errorMsg)&& <p style={{"color":"red"}}>Password is required</p>}
                         <p style={{"display":"flex","flexDirection":"row-reverse","color":"#6B9ECE","fontSize":"13px","fontWeight":"bold"}}>Forgot Password?</p>
                     </div>
