@@ -1,6 +1,4 @@
-import logo from './logo.svg';
 import { Route,Routes, useNavigate } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
 import Home from "./compo/home";
 import CreatProject from "./compo/createProject";
 import DashBoard from './compo/dashboard';

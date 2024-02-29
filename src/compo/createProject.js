@@ -7,7 +7,6 @@ import Logo from "../drive-download-20240208T081504Z-001/Logo.svg"
 import axios from "axios";
 import LogoutImg from "../drive-download-20240208T081504Z-001/Logout.svg"
 import { useNavigate } from "react-router-dom";
-import { error } from "highcharts";
 
 
 

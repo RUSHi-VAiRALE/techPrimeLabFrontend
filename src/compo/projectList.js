@@ -9,8 +9,6 @@ import TableCreate from "./tableComp";
 import MobileCard from "./mobileCard";
 import LogoutImg from "../drive-download-20240208T081504Z-001/Logout.svg";
 import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
-import { error } from "highcharts";
 import { useNavigate } from "react-router-dom";
 const limitPage = 8;
 let newData = new Array();
