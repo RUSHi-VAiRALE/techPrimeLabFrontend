@@ -9,6 +9,13 @@
     right: 15px;
 }
 
+.searchBox{
+    border: none;
+    border-bottom: solid #979797;
+    width: 252px;
+    height: 30px;
+}
+
 .createProjListCont {
     position: absolute;
     width: 94%;

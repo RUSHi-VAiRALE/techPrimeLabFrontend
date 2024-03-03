@@ -73,7 +73,7 @@ const Home = () => {
                 <div className="loginDiv">
                     <div className="loginText">Login to get started</div>
                     <div className="labelDiv">
-                        <label className={(errorMsg)?"labelError":""} >Email</label>
+                        <label className={(errorMsg)?"labelError":"labelClass"} >Email</label>
                         <div>
                             <input onChange={handleChange} className={(errorMsg)?"inputDivError":"inputDiv"} name="email" type="email" />
                         </div>
@@ -81,7 +81,7 @@ const Home = () => {
                         {(validEmail) && <p style={{"color":"red","position":"relative"}}>Enter Valid Email</p>}
                     </div>
                     <div className="labelDiv">
-                        <label className={(errorMsg)?"labelError":""}>Password</label>
+                        <label className={(errorMsg)?"labelError":"labelClass"}>Password</label>
                         <div>
                             <input onChange={handleChange} className={(errorMsg)?"inputDivError":"inputDiv"} name="password" type={(pass)?"password":""}/>
                             <img onClick={()=>{
@@ -89,7 +89,7 @@ const Home = () => {
                         }} className="hidePassword" src={hidePassword} />
                         </div>
                         {(errorMsg)&& <p style={{"color":"red"}}>Password is required</p>}
-                        <p style={{"display":"flex","flexDirection":"row-reverse","color":"#6B9ECE","fontSize":"13px","fontWeight":"bold"}}>Forgot Password?</p>
+                        <p style={{"display":"flex","flexDirection":"row-reverse","color":"#025AAB","fontSize":"12px"}}>Forgot Password?</p>
                     </div>
                     <button onClick={handleClick} className="loginButton">Login</button>
                     {(isUserValid)&&<p style={{"color":"red"}}>invalid user</p>}

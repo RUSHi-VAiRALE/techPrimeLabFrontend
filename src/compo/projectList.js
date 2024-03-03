@@ -10,6 +10,7 @@ import MobileCard from "./mobileCard";
 import LogoutImg from "../drive-download-20240208T081504Z-001/Logout.svg";
 import Pagination from '@mui/material/Pagination';
 import { useNavigate } from "react-router-dom";
+import searchIcon from "../drive-download-20240208T081504Z-001/icons8-search.svg"
 const limitPage = 8;
 let newData = new Array();
 
@@ -150,7 +151,7 @@ const ProjectList = () =>{
                 <div className="createProjText"><span><img src={BackArrow}/></span>Project Listing</div>
                 <div className="createProjListCont">
                     <div className="listDiv1">
-                        <input onChange={handleChangeSearch} type="search" name="searchRes" placeholder="Search"/>
+                            <input className="searchBox" onChange={handleChangeSearch} type="search" name="searchRes" placeholder="Search"/>
                         <div>
                             <span>Sort By: </span>
                             <select onChange={handleChange} name="sortBy" style={{"border":"none"}}>
