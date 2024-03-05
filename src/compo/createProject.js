@@ -76,7 +76,6 @@ const CreateProject = () =>{
             setDateError(true)
         }
         else{
-            console.log("first")
             axios.post("http://localhost:8000/createProject",inputs)
         .then((res)=>{
             console.log(res)
@@ -110,13 +109,12 @@ const CreateProject = () =>{
                 <div className="creatProjContainer">
             <img className="dashImg" src={HeaderBg} />
             <img onClick={handleLogout} className="logoutImg" src={LogoutImg} />
-                   <img className="dashLogo" src={Logo} />
+                <img className="dashLogo" src={Logo} />
                <div className="createProjText"><span><img src={BackArrow}/></span>Create Project</div>
             <div style={{"padding":"5px","width":"100%"}}>
                 <div className="createProjInfoCont desktopProjInfo">
                 <div className="desktopProjTheme mobileProjDiv">
                         <input style={(isThemeError)?{"border":"solid 1px red"}:null} onChange={handleChange} className="createTheme" name="projectTheme" type="text" placeholder="Enter Project Theme" />
-                        
                         <button onClick={handleClick} className="saveButton isButtonVisUp">Save Project</button>
                 </div>
                 {(isThemeError)&&<p style={{"color":"red"}}>Project Theme required</p>}
@@ -157,9 +155,6 @@ const CreateProject = () =>{
                             <div className="statusCont">
                                 Status : <strong>Registered</strong>
                             </div>
-                            {/* <div className="createOption">
-
-                            </div> */}
                             <button onClick={handleClick} className="saveButton isButtonVisDown">Save Project</button>
                             <div className="createOption">
 

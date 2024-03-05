@@ -17,11 +17,12 @@ const Home = () => {
     const [validEmail, setValidEmail] = useState(false)
     const [isUserValid, setisUserValid] = useState(false);
     const navigate = useNavigate();
+
+    
     const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputsLogin(values => ({...values, [name]: value}))
-
     }
 
     const handleClick = () =>{
