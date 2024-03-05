@@ -27,6 +27,7 @@ const Home = () => {
     const handleClick = () =>{
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if(inputsLogin.email === "" || inputsLogin.password === ""){
+            setValidEmail(false)
             seterrorMsg(true)
         }
         else if(!regex.test(inputsLogin.email)){
