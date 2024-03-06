@@ -88,7 +88,7 @@ const ProjectList = () =>{
             console.log(err)
         })
     }
-    })
+    },[])
 
     const handlePagination = (e,p) =>{
         let startIndex = (p-1) * limitPage
@@ -119,7 +119,17 @@ const ProjectList = () =>{
 
 
     const handleChangeSearch = (e) =>{
-        setData(filterArray(newData,e.target.value))
+        const tmp = filterArray(newData,e.target.value)
+        let endIndex = 8;
+            // const demo = res.data
+            // newData = demo
+            if(limitPage > tmp.length){
+                endIndex = tmp.length
+            }
+            setData(tmp.slice(0,endIndex))
+            let len = tmp.length
+            let ss = Math.ceil(len/8)
+            setSize(ss)
     }
 
     function filterArray(arr,query){
