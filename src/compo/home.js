@@ -61,16 +61,16 @@ const Home = () => {
             navigate("/createProject")
             alert("Action not allowed")
         }
-    },[])
+    })
 
     return (
         <div className="homeDiv">
             <div className="loginImgCont">
-                <img className="loginImg" src={LoginBg} />
+                <img className="loginImg" src={LoginBg} alt="LoginBg" />
             </div>
             
             <div className="homeGrid">
-                <img className="logo" src={Logo}/>
+                <img className="logo" src={Logo} alt="logo"/>
                 <div className="homeText">Online Project Management</div>
                 <div className="loginDiv">
                     <div className="loginText">Login to get started</div>
@@ -88,7 +88,7 @@ const Home = () => {
                             <input onChange={handleChange} className={(errorMsg)?"inputDivError":"inputDiv"} name="password" type={(pass)?"password":""}/>
                             <img onClick={()=>{
                             setPass(!pass)
-                        }} className="hidePassword" src={hidePassword} />
+                        }} className="hidePassword" src={hidePassword}alt="hidePassword" />
                         </div>
                         {(errorMsg)&& <p style={{"color":"red"}}>Password is required</p>}
                         <p style={{"display":"flex","flexDirection":"row-reverse","color":"#025AAB","fontSize":"12px"}}>Forgot Password?</p>

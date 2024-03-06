@@ -98,7 +98,7 @@ const CreateProject = () =>{
             alert("Please Login first");
             navigate("/")
         }
-    },[])
+    })
 
     return(
         <div style={{"display":"flex"}}>
@@ -107,10 +107,10 @@ const CreateProject = () =>{
             </div>
             <div style={{"flex":"1"}}>
                 <div className="creatProjContainer">
-            <img className="dashImg" src={HeaderBg} />
-            <img onClick={handleLogout} className="logoutImg" src={LogoutImg} />
-                <img className="dashLogo" src={Logo} />
-               <div className="createProjText"><span><img src={BackArrow}/></span>Create Project</div>
+            <img className="dashImg" src={HeaderBg} alt="header background"/>
+            <img onClick={handleLogout} className="logoutImg" src={LogoutImg} alt="logoutImg" />
+                <img className="dashLogo" src={Logo} alt="logo" />
+               <div className="createProjText"><span><img src={BackArrow} alt="BackArrow"/></span>Create Project</div>
             <div style={{"padding":"5px","width":"100%"}}>
                 <div className="createProjInfoCont desktopProjInfo">
                 <div className="desktopProjTheme mobileProjDiv">

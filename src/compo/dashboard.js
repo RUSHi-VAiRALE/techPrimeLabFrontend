@@ -32,7 +32,7 @@ const DashBoard = () =>{
             setData(res.data.GraphData)
         })
         }
-    },[])
+    })
 
     const handleLogout = () =>{
         localStorage.clear()
@@ -44,10 +44,10 @@ const DashBoard = () =>{
         <div style={{"display":"flex"}}>
             <SideNav />
             <div style={{"width":"100%"}}>
-                <img className="dashImg" src={HeaderBg} />
-                <img onClick={handleLogout} className="logoutImg" src={logoutImg} />
-                <img className="dashLogo" src={Logo} />
-                <div className="createProjText"><span><img src={BackArrow}/></span>Dashboard</div>
+                <img className="dashImg" src={HeaderBg} alt="Header Bg"/>
+                <img onClick={handleLogout} className="logoutImg" src={logoutImg} alt="logoutImg"/>
+                <img className="dashLogo" src={Logo} alt="dashLogo"/>
+                <div className="createProjText"><span><img src={BackArrow} alt="backArrow"/></span>Dashboard</div>
                 <div className="dashFlex">
                     {countData.map((info)=>{
                         return(

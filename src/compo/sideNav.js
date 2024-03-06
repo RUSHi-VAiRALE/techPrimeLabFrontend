@@ -21,12 +21,12 @@ const SideNav = () =>{
     return(
         <div className="sideNavBar">
                 <div className="iconContNav">
-                    <img onClick={()=>{setProList(ProListAct);navigate("/projectList")}} src={proList} />
-                    <img onClick={()=>{setDashBrd(DashBoardAct);navigate("/dashBoard")}} src={dashBrd} />
-                    <img onClick={()=>{setCrtProj(createAct);navigate("/createProject")}} src={crtProj} />
+                    <img onClick={()=>{setProList(ProListAct);navigate("/projectList")}} src={proList} alt="proList" />
+                    <img onClick={()=>{setDashBrd(DashBoardAct);navigate("/dashBoard")}} src={dashBrd} alt="dashBrd"/>
+                    <img onClick={()=>{setCrtProj(createAct);navigate("/createProject")}} src={crtProj} alt="crtProj"/>
                 </div>
                 <div className="logoutDesk">
-                    <img onClick={handleLogout} src={LogoutImg} />
+                    <img onClick={handleLogout} src={LogoutImg} alt="logoutImg"/>
                 </div>
             </div>
     )
