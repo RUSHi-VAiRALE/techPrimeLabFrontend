@@ -1,14 +1,22 @@
 import React from "react";
+import { useState } from "react";
 import axios from "axios";
 const arrayMonth = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
+
 const MobileCard = (props) => {
+
+    const [Tp, setTp] =useState(false)
+    const [status,setStatus] = useState("");
+
     const handleClick = (e) =>{
         console.log(e.target.value)
         try {
             axios.put("http://localhost:8000/update/"+props.Id,{change:e.target.value})
             .then((res)=>{
                 console.log(res.data)
+                setTp(true)
+                setStatus(e.target.value)
             })
             .catch((err)=>{
                 console.log(err)
@@ -30,7 +38,7 @@ const MobileCard = (props) => {
         <div className="cardList">
                             <div style={{"margin":"3px"}} className="nameCont">
                                 <div className="projName">{props.ProjectTheme}</div>
-                                <div className="projStatus">{props.Status}</div>
+                                <div className="projStatus">{(Tp)?status:props.Status}</div>
                             </div>
                             <div style={{"margin":"3px"}}>
                                 <span style={{"color":"grey","fontWeight":"lighter"}}>{datemani(props.StartDate)} to {datemani(props.EndDate)}</span>

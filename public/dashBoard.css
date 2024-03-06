@@ -4,7 +4,7 @@
 }
 .dashFlex{
     position: absolute;
-    top: 17%;
+    top: 15%;
     left: 7%;
     width: 90%;
     height: 80px;
@@ -38,6 +38,7 @@
     }
 
     .dashFlex{
+        top: 10%;
         gap: 15px;
         height: 90px;
         overflow: scroll;
@@ -47,7 +48,7 @@
         width: 90%;
         height: 90%;
         left: 7%;
-        top: 180px;
+        top: 140px;
         background-color: white;
         display: flex;
         justify-content: center;

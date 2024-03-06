@@ -11,7 +11,7 @@
 
 .searchBox{
     border: none;
-    border-bottom: solid #979797;
+    border-bottom: solid 1px #979797;
     width: 252px;
     height: 30px;
 }
@@ -102,6 +102,11 @@ td{
 }
 
 @media (min-width : 770px){
+
+    .pagiDiv{
+        display: none;
+    }
+    
     .cardContainer {
         display: none;
     }
@@ -110,7 +115,6 @@ td{
         top: 0;
         right: 50%;
     }
-    
 }
 
 
@@ -124,4 +128,22 @@ td{
     table{
         display: none;
     }
+
+    .pagiDiv{
+        display: none;
+    }
+
+        .listDiv1 {
+            flex-direction: column;
+            gap: 20px;
+        }
+    
+        .searchBox {
+            background-color: transparent;
+        }
+
+        .sortBy{
+            background-color: transparent;
+        }
+
 }

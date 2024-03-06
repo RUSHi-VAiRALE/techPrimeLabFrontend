@@ -100,10 +100,11 @@
 
 @media (max-width : 426px){
     .loginDiv{
-        height: 350px;
-        left: 5%;
-        top: 35%;
+        height: 460px;
+        left: 3%;
+        top: 30%;
         gap: 30px;
+        background-color: transparent;
     }
     .homeText{
         left: 32%;
@@ -128,7 +129,7 @@
         }
 
         .hidePassword {
-                top: 65.5%;
+                top: 48.5%;
                 right: 12%;
         }
 }
@@ -136,10 +137,12 @@
 @media (max-width : 376px){
     .loginDiv {
             width: 350px;
+            height: 420px;
             left: 4%;
             top: 35%;
             gap: 20px;
             height: 350px;
+            background-color: transparent;
         }
     
         .loginImg {
@@ -156,6 +159,11 @@
             height: 180px;
             border-bottom-left-radius: 50px;
         }
+
+                .hidePassword {
+                    top: 48.5%;
+                    right: 10%;
+                }
     
 }
 
@@ -165,6 +173,7 @@
         height: 350px;
         left: 4%;
         top: 35%;
+        background-color: transparent;
     }
 
     .inputDiv{
@@ -191,7 +200,7 @@
     }
 
     .hidePassword{
-        top: 50%;
-        right: 10%;
+        top: 49%;
+        right: 9%;
     }
 }

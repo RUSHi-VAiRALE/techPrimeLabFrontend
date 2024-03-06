@@ -32,7 +32,7 @@ const DashBoard = () =>{
             setData(res.data.GraphData)
         })
         }
-    })
+    },[])
 
     const handleLogout = () =>{
         localStorage.clear()

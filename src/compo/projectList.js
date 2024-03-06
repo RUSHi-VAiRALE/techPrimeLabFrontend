@@ -154,7 +154,7 @@ const ProjectList = () =>{
                             <input className="searchBox" onChange={handleChangeSearch} type="search" name="searchRes" placeholder="Search"/>
                         <div>
                             <span>Sort By: </span>
-                            <select onChange={handleChange} name="sortBy" style={{"border":"none"}}>
+                            <select className="sortBy" onChange={handleChange} name="sortBy" style={{"border":"none"}}>
                                 <option value="Priority">Priority</option>
                                 <option value="Category">Category</option>
                                 <option value="Reason">Reason</option>
@@ -167,6 +167,9 @@ const ProjectList = () =>{
                     <div>
                         <div className="cardContainer">
                             {data.map(CreateCard)}
+                            <div style={{"display":"flex","justifyContent":"center","marginBottom":"10px","marginTop":"10px"}}>
+                        <Pagination  count={size} showFirstButton showLastButton onChange={handlePagination} color="primary" />
+                    </div>
                         </div>
                         
                         <table>
@@ -180,7 +183,7 @@ const ProjectList = () =>{
                             </tr>
                             {data.map(CreateTable)}
                         </table>
-                        <div style={{"display":"flex","justifyContent":"center"}}>
+                        <div className="pagiDiv" style={{"display":"flex","justifyContent":"center","marginBottom":"10px","marginTop":"10px"}}>
                         <Pagination  count={size} showFirstButton showLastButton onChange={handlePagination} color="primary" />
                     </div>
                     </div>
