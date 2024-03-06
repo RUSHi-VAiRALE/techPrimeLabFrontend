@@ -10,9 +10,8 @@ import MobileCard from "./mobileCard";
 import LogoutImg from "../drive-download-20240208T081504Z-001/Logout.svg";
 import Pagination from '@mui/material/Pagination';
 import { useNavigate } from "react-router-dom";
-import searchIcon from "../drive-download-20240208T081504Z-001/icons8-search.svg"
 const limitPage = 8;
-let newData = new Array();
+let newData = [];
 
 const CreateTable = (info) => {
 
@@ -89,15 +88,9 @@ const ProjectList = () =>{
             console.log(err)
         })
     }
-    },[])
+    })
 
     const handlePagination = (e,p) =>{
-        // console.log(p)
-        // let startIndex = (p-1) * limitPage
-        // let endIndex = p * limitPage
-        // if(endIndex > data.length){
-        //     endIndex = startIndex + ((data.length)%8)
-        // }
         let startIndex = (p-1) * limitPage
         let endIndex = p * limitPage
         if(endIndex > newData.length){
@@ -105,9 +98,6 @@ const ProjectList = () =>{
         }   
 
         setData(newData.slice(startIndex,endIndex))
-            // let s = res.data.length
-            // let ss = Math.ceil(s/8)
-            // setSize(ss)
     }
 
     const handleChange = async(e) =>{
@@ -145,10 +135,10 @@ const ProjectList = () =>{
         <div className="projListContainer" style={{"display":"flex"}}>
             <SideNav />
             <div style={{"width":"100%"}}>
-                <img className="dashImg" src={HeaderBg} />
-                <img onClick={handleLogout} className="logoutImg" src={LogoutImg} />
-                <img className="dashLogo" src={Logo} />
-                <div className="createProjText"><span><img src={BackArrow}/></span>Project Listing</div>
+                <img className="dashImg" src={HeaderBg} alt="HeaderBg"/>
+                <img onClick={handleLogout} className="logoutImg" src={LogoutImg} alt="LogoutImg"/>
+                <img className="dashLogo" src={Logo} alt="Logo"/>
+                <div className="createProjText"><span><img src={BackArrow} alt="BackArrow"/></span>Project Listing</div>
                 <div className="createProjListCont">
                     <div className="listDiv1">
                             <input className="searchBox" onChange={handleChangeSearch} type="search" name="searchRes" placeholder="Search"/>
